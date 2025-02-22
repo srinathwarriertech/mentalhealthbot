@@ -5,6 +5,7 @@ import { ChatOpenAI } from "@langchain/openai";
 import {ChatGroq} from "@langchain/groq";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { HttpResponseOutputParser } from "langchain/output_parsers";
+import { getDefaultPromptChat } from "../prompt";
 
 export const runtime = "edge";
 
@@ -12,14 +13,7 @@ const formatMessage = (message: VercelChatMessage) => {
   return `${message.role}: ${message.content}`;
 };
 
-const TEMPLATE = ``+
-`You are Docy, a helpful AI Hospital management bot.`+
-`
-Current conversation:
-{chat_history}
-
-User: {input}
-AI:`;
+const TEMPLATE = getDefaultPromptChat();
 
 /**
  * This handler initializes and calls a simple chain with a prompt,

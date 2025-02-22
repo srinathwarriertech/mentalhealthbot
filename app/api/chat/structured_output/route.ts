@@ -5,16 +5,14 @@ import { z } from "zod";
 import { ChatOpenAI } from "@langchain/openai";
 import {ChatGroq} from "@langchain/groq";
 import { PromptTemplate } from "@langchain/core/prompts";
+import { getDefaultPromptStructuredOutput } from "../../prompt";
+
 
 export const runtime = "edge";
 
-const TEMPLATE = `Extract the requested fields from the input.
+const TEMPLATE = getDefaultPromptStructuredOutput();
 
-The field "entity" refers to the first mentioned entity in the input.
 
-Input:
-
-{input}`;
 
 /**
  * This handler initializes and calls an OpenAI Functions powered

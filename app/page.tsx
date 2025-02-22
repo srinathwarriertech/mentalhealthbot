@@ -31,9 +31,14 @@ export default function Home() {
           </span>
         </li>
         <li>
-          🏴‍☠️
+          💯
           <span className="ml-2">
-            By default, the bot is pretending to be a pirate, but you can change
+            By default, the bot can help answer all questions about a Neuroscience course called 
+            {" "}
+            <a href="https://sidwarrier.com/neuromastery" target="_blank">
+              NeuroMastery
+            </a>{" "}
+            , but you can change
             the prompt to whatever you want!
           </span>
         </li>
@@ -46,7 +51,7 @@ export default function Home() {
         <li className="text-l">
           👇
           <span className="ml-2">
-            Try asking e.g. <code>What is it like to be a pirate?</code> below!
+            Try asking e.g. <code>What is the course about?</code> below!
           </span>
         </li>
       </ul>
@@ -55,8 +60,7 @@ export default function Home() {
   return (
     <ChatWindow
       endpoint="api/chat"
-      emoji="🏴‍☠️"
-      placeholder="Docy the Hospital Management bot. I'm a Hospital Management bot!"
+      placeholder="I'm an AI bot to answer all your queries!"
       emptyStateComponent={InfoCard}
     />
   );
