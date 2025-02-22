@@ -72,26 +72,26 @@ export default function RootLayout({
                   <Logo />
                 </a>
                 <nav className="flex gap-1 flex-col md:flex-row">
-                  <ActiveLink href="/">🏴‍☠️ Chat</ActiveLink>
+                  <ActiveLink href="/">❶ Chat</ActiveLink>
                   <ActiveLink href="/structured_output">
-                    🧱 Structured Output
+                    ❷ Structured Output
                   </ActiveLink>
-                  <ActiveLink href="/agents">🦜 Agents</ActiveLink>
-                  <ActiveLink href="/retrieval">🐶 Retrieval</ActiveLink>
+                  <ActiveLink href="/agents">❸ Agents</ActiveLink>
+                  <ActiveLink href="/retrieval">❹ Retrieval</ActiveLink>
                   <ActiveLink href="/retrieval_agents">
-                    🤖 Retrieval Agents
+                    ❺ Retrieval Agents
                   </ActiveLink>
-                  <ActiveLink href="/ai_sdk">
+                  {/* <ActiveLink href="/ai_sdk">
                     🌊 React Server Components
                   </ActiveLink>
-                  <ActiveLink href="/langgraph">🕸️ LangGraph</ActiveLink>
+                  <ActiveLink href="/langgraph">🕸️ LangGraph</ActiveLink> */}
                 </nav>
               </div>
 
               <div className="flex justify-center">
                 <Button asChild variant="outline" size="default">
                   <a
-                    href="https://github.com/langchain-ai/langchain-nextjs-template"
+                    href="https://github.com/srinathwarriertech/langchain-nextjs-deepseek"
                     target="_blank"
                   >
                     <GithubIcon className="size-3" />

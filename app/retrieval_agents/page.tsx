@@ -63,7 +63,7 @@ export default function AgentsPage() {
           👇
           <span className="ml-2">
             Upload some text, then try asking e.g.{" "}
-            <code>What are some ways of doing retrieval in LangChain?</code>{" "}
+            <code>When is the next discovery call of NeuroMastery Bootcamp?</code>{" "}
             below!
           </span>
         </li>
@@ -78,9 +78,9 @@ export default function AgentsPage() {
       showIngestForm={true}
       showIntermediateStepsToggle={true}
       placeholder={
-        'Beep boop! I\'m a robot retrieval-focused agent! Ask, "What are some ways of doing retrieval in LangChain.js?"'
+        'I am a Retrieval-focused agent! Ask, "When is the next discovery call of NeuroMastery Bootcamp?"'
       }
-      emoji="🤖"
+      emoji="🟣"
     />
   );
 }

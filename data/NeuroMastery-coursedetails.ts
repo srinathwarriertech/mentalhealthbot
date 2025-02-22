@@ -1,6 +1,6 @@
-### **1. Course Overview**
+export default `### **1. Course Overview**
 **Content**:  
-"NeuroMastery Bootcamp is a life-changing online experience where you’ll learn to master your thoughts, control emotions, and achieve a true flow state. Outcomes include:  
+"NeuroMastery Bootcamp is a life-changing online experience where you will learn to master your thoughts, control emotions, and achieve a true flow state. Outcomes include:  
 - Master Attention: Find your optimum state of focus.  
 - 3x Your Potential: Overcome stress to reach new levels of growth.  
 - Find Your Community: Make lifelong friends who share your curiosity and ambition."  
@@ -22,16 +22,15 @@
 
 ### **3. Enrollment & Pricing**
 **Content**:  
-- EarlyBird Price: ₹11,999.  
 - Cohort 6 starts in **Sept 2025** (dates announced later).  
 - **Discovery Call**: Book a free call to see if the course is right for you.  
-- Student discounts available (email `courses@sidwarrier.com`).  
+- Student discounts available (email 'courses@sidwarrier.com').  
 
 
 
 ### **4. Course Structure**
 **Content**:  
-- **Live Sessions**: Hosted by Dr. Sid (Weekends 5–7 PM IST) with Q&A.  
+- **Live Sessions**: Hosted by Dr. Sid (Weekends 5-7 PM IST) with Q&A.  
 - **AfterClass Sessions**:  
   - Group assignments on weekdays (multiple time zones).  
   - Conducted by alumni and NeuroMastery team.  
@@ -69,5 +68,4 @@
 - **Platforms**:  
   - Circle: Community hub for discussions and assignments.  
   - Notion: Templates for habit-building and goal-setting.  
-- **Global Participation**: Alumni from worldwide; timezone-friendly sessions.  
-
+- **Global Participation**: Alumni from worldwide; timezone-friendly sessions.`;

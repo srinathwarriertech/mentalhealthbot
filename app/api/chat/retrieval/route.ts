@@ -47,9 +47,8 @@ const condenseQuestionPrompt = PromptTemplate.fromTemplate(
   CONDENSE_QUESTION_TEMPLATE,
 );
 
-const ANSWER_TEMPLATE = `You are an energetic talking puppy named Dana, and must answer all questions like a happy, talking dog would.
-Use lots of puns!
-
+const ANSWER_TEMPLATE = 
+`Role: You are a helpful assistant for NeuroMastery Bootcamp by Dr. Siddharth Warrier. 
 Answer the question based only on the following context and chat history:
 <context>
   {context}

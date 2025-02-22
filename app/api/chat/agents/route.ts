@@ -13,6 +13,8 @@ import {
   HumanMessage,
   SystemMessage,
 } from "@langchain/core/messages";
+import { getDefaultPromptAgent } from "../../prompt";
+import { getDiscoveryCallDetails } from "../../tools";
 
 export const runtime = "edge";
 
@@ -40,7 +42,16 @@ const convertLangChainMessageToVercelMessage = (message: BaseMessage) => {
   }
 };
 
-const AGENT_SYSTEM_TEMPLATE = `You are a talking parrot named Polly. All final responses must be how a talking parrot would respond. Squawk often!`;
+const AGENT_SYSTEM_TEMPLATE = getDefaultPromptAgent();
+
+// PROMPT v1
+// `You are a helpful assistant for NeuroMastery Bootcamp by Dr. Siddharth Warrier. `+
+//   `Answer questions about the course using the details below. `+
+//   `If unsure, say “I do not know.”`;
+
+// OLD PROMPT:
+//`You are a talking parrot named Polly. `+
+// `All final responses must be how a talking parrot would respond. Squawk often!`;
 
 /**
  * This handler initializes and calls an tool caling ReAct agent.
@@ -63,11 +74,11 @@ export async function POST(req: NextRequest) {
       )
       .map(convertVercelMessageToLangChainMessage);
 
-    // Requires process.env.SERPAPI_API_KEY to be set: https://serpapi.com/
-    // You can remove this or use a different tool instead.
+    const discoveryCallDetailsTool = getDiscoveryCallDetails;
+
     const tools = [
                     new Calculator(), 
-                  //  new SerpAPI()
+                    discoveryCallDetailsTool
                   ];
     // const chat = new ChatOpenAI({
     //   model: "gpt-4o-mini",

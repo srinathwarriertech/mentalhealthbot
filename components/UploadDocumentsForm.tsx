@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import DEFAULT_RETRIEVAL_TEXT from "@/data/DefaultRetrievalText";
+import DEFAULT_RETRIEVAL_TEXT from "@/data/NeuroMastery-coursedetails";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 

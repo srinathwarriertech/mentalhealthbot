@@ -39,8 +39,8 @@ export default function AgentsPage() {
         <li>
           🦜
           <span className="ml-2">
-            By default, the agent is pretending to be a talking parrot, but you
-            can the prompt to whatever you want!
+            By default, the agent can handle questions on NeuroMastery Bootcamp, but you
+            can edit the prompt to whatever you want!
           </span>
         </li>
         <li className="hidden text-l md:block">
@@ -53,7 +53,7 @@ export default function AgentsPage() {
         <li className="text-l">
           👇
           <span className="ml-2">
-            Try asking e.g. <code>What is the weather in Honolulu?</code> below!
+            Try asking e.g. <code>When is the next discovery call of NeuroMastery Bootcamp?</code> below!
           </span>
         </li>
       </ul>
@@ -64,8 +64,8 @@ export default function AgentsPage() {
     <ChatWindow
       endpoint="api/chat/agents"
       emptyStateComponent={InfoCard}
-      placeholder="Squawk! I'm a conversational agent! Ask me about the current weather in Honolulu!"
-      emoji="🦜"
+      placeholder="I'm a conversational agent! Ask, 'When is the next discovery call of NeuroMastery Bootcamp?'"
+      emoji="🟣"
       showIntermediateStepsToggle={true}
     />
   );

@@ -16,6 +16,7 @@ import {ChatGroq} from "@langchain/groq";
 import { HuggingFaceInferenceEmbeddings } from "@langchain/community/embeddings/hf";
 import { createRetrieverTool } from "langchain/tools/retriever";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
+import { getDiscoveryCallDetails } from "../../tools";
 
 export const runtime = "edge";
 
@@ -43,9 +44,10 @@ const convertLangChainMessageToVercelMessage = (message: BaseMessage) => {
   }
 };
 
-const AGENT_SYSTEM_TEMPLATE = `You are a stereotypical robot named Robbie and must answer all questions like a stereotypical robot. Use lots of interjections like "BEEP" and "BOOP".
+const AGENT_SYSTEM_TEMPLATE = 
 
-If you don't know how to answer a question, use the available tools to look up relevant information. You should particularly do this for questions about LangChain.`;
+`Role: You are a helpful assistant for NeuroMastery Bootcamp by Dr. Siddharth Warrier. 
+If you don't know how to answer a question, use the available tools to look up relevant information.`;
 
 /**
  * This handler initializes and calls an tool caling ReAct agent.
@@ -87,7 +89,7 @@ export async function POST(req: NextRequest) {
     const vectorstore = new SupabaseVectorStore(
       new HuggingFaceInferenceEmbeddings({
         apiKey:process.env.HF_API_KEY
-      })
+      }),
     {
       client,
       tableName: "documents",
@@ -100,17 +102,19 @@ export async function POST(req: NextRequest) {
      * Wrap the retriever in a tool to present it to the agent in a
      * usable form.
      */
-    const tool = createRetrieverTool(retriever, {
+    const retrieverTool = createRetrieverTool(retriever, {
       name: "search_latest_knowledge",
       description: "Searches and returns up-to-date general information.",
     });
+
+    const discoveryCallDetailsTool = getDiscoveryCallDetails;
 
     /**
      * Use a prebuilt LangGraph agent.
      */
     const agent = await createReactAgent({
       llm: chatModel,
-      tools: [tool],
+      tools: [retrieverTool ,discoveryCallDetailsTool],
       /**
        * Modify the stock prompt in the prebuilt agent. See docs
        * for how to customize your agent:
