@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 import { ChatOpenAI } from "@langchain/openai";
+import {ChatGroq} from "@langchain/groq";
 import { PromptTemplate } from "@langchain/core/prompts";
 
 export const runtime = "edge";
@@ -31,9 +32,11 @@ export async function POST(req: NextRequest) {
     /**
      * Function calling is currently only supported with ChatOpenAI models
      */
-    const model = new ChatOpenAI({
-      temperature: 0.8,
-      model: "gpt-4o-mini",
+    const model = new ChatGroq({
+      model: "mixtral-8x7b-32768",
+      temperature: 0,
+      apiKey: process.env.GROQ_API_KEY 
+      // other params...
     });
 
     /**

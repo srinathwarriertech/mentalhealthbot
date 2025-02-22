@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Message as VercelChatMessage, StreamingTextResponse } from "ai";
 
 import { ChatOpenAI } from "@langchain/openai";
+import {ChatGroq} from "@langchain/groq";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { HttpResponseOutputParser } from "langchain/output_parsers";
 
@@ -11,8 +12,9 @@ const formatMessage = (message: VercelChatMessage) => {
   return `${message.role}: ${message.content}`;
 };
 
-const TEMPLATE = `You are a pirate named Patchy. All responses must be extremely verbose and in pirate dialect.
-
+const TEMPLATE = ``+
+`You are Docy, a helpful AI Hospital management bot.`+
+`
 Current conversation:
 {chat_history}
 
@@ -42,9 +44,11 @@ export async function POST(req: NextRequest) {
      * See a full list of supported models at:
      * https://js.langchain.com/docs/modules/model_io/models/
      */
-    const model = new ChatOpenAI({
-      temperature: 0.8,
-      model: "gpt-4o-mini",
+    const model = new ChatGroq({
+      model: "mixtral-8x7b-32768",
+      temperature: 0,
+      apiKey: process.env.GROQ_API_KEY 
+      // other params...
     });
 
     /**

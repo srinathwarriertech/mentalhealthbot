@@ -4,7 +4,7 @@ import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { createClient } from "@supabase/supabase-js";
 import { SupabaseVectorStore } from "@langchain/community/vectorstores/supabase";
 import { OpenAIEmbeddings } from "@langchain/openai";
-
+import { HuggingFaceInferenceEmbeddings } from "@langchain/community/embeddings/hf";
 export const runtime = "edge";
 
 // Before running, follow set-up instructions at
@@ -48,7 +48,9 @@ export async function POST(req: NextRequest) {
 
     const vectorstore = await SupabaseVectorStore.fromDocuments(
       splitDocuments,
-      new OpenAIEmbeddings(),
+      new HuggingFaceInferenceEmbeddings({
+        apiKey:process.env.HF_API_KEY
+      }),
       {
         client,
         tableName: "documents",

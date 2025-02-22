@@ -3,6 +3,7 @@ import { Message as VercelChatMessage, StreamingTextResponse } from "ai";
 
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
 import { ChatOpenAI } from "@langchain/openai";
+import {ChatGroq} from "@langchain/groq";
 import { SerpAPI } from "@langchain/community/tools/serpapi";
 import { Calculator } from "@langchain/community/tools/calculator";
 import {
@@ -64,10 +65,19 @@ export async function POST(req: NextRequest) {
 
     // Requires process.env.SERPAPI_API_KEY to be set: https://serpapi.com/
     // You can remove this or use a different tool instead.
-    const tools = [new Calculator(), new SerpAPI()];
-    const chat = new ChatOpenAI({
-      model: "gpt-4o-mini",
+    const tools = [
+                    new Calculator(), 
+                  //  new SerpAPI()
+                  ];
+    // const chat = new ChatOpenAI({
+    //   model: "gpt-4o-mini",
+    //   temperature: 0,
+    // });
+    const chat = new ChatGroq({
+      model: "mixtral-8x7b-32768",
       temperature: 0,
+      apiKey: process.env.GROQ_API_KEY 
+      // other params...
     });
 
     /**
