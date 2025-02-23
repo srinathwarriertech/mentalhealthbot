@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { GithubIcon } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import Image from 'next/image';
 
 const publicSans = Public_Sans({ subsets: ["latin"] });
 
@@ -64,12 +65,17 @@ export default function RootLayout({
             <div className="grid grid-cols-[1fr,auto] gap-2 p-4">
               <div className="flex gap-4 flex-col md:flex-row md:items-center">
                 <a
-                  href="https://js.langchain.com"
+                  href="https://sidwarrier.com/neuromastery"
                   rel="noopener noreferrer"
                   target="_blank"
                   className="flex items-center gap-2"
                 >
-                  <Logo />
+                  <Image
+                    src="/images/nl-logo.png"
+                    width={20}
+                    height={20}
+                    alt="Neuromastery logo"
+                  />
                 </a>
                 <nav className="flex gap-1 flex-col md:flex-row">
                   <ActiveLink href="/">❶ Chat</ActiveLink>

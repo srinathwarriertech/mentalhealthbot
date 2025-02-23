@@ -14,7 +14,7 @@ import {
   SystemMessage,
 } from "@langchain/core/messages";
 import { getDefaultPromptAgent } from "../../prompt";
-import { getDiscoveryCallDetails } from "../../tools";
+import { getDiscoveryCallDetails, getSimilarCoursesTool, getWeatherTool } from "../../tools";
 
 export const runtime = "edge";
 
@@ -75,10 +75,14 @@ export async function POST(req: NextRequest) {
       .map(convertVercelMessageToLangChainMessage);
 
     const discoveryCallDetailsTool = getDiscoveryCallDetails;
+    const weatherTool = getWeatherTool;
+    const similarCoursesTool = getSimilarCoursesTool;
 
     const tools = [
                     new Calculator(), 
-                    discoveryCallDetailsTool
+                    discoveryCallDetailsTool,
+                    weatherTool ,
+                    similarCoursesTool
                   ];
     // const chat = new ChatOpenAI({
     //   model: "gpt-4o-mini",

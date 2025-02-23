@@ -1,4 +1,5 @@
 import { tool } from "@langchain/core/tools";
+import {ChatGroq} from "@langchain/groq";
 export const getDiscoveryCallDetails = tool((input) => {
     // Option1
     // In a real scenario, you would connect this to Google Calendar API to check the next available slot.
@@ -16,3 +17,36 @@ export const getDiscoveryCallDetails = tool((input) => {
     name: "getDiscoveryCall",
     description: "Call to get the next available Discovery call slot.",
   });
+
+export const getWeatherTool = tool((input) =>{
+  console.log("inside getWeatherTool");
+  return "The weather is 30C";
+},{
+  name:"getWeather",
+  description:"Call to get weather"
+})
+
+export const getSimilarCoursesTool = tool(async (input) =>{
+  console.log("inside getSimilarCoursesTool 1");
+  // return "A Similar course is Medical Neuroscience by Duke University.";
+  const chat = new ChatGroq({
+    model: "deepseek-r1-distill-qwen-32b",
+    temperature: 0,
+    apiKey: process.env.GROQ_API_KEY 
+    // other params...
+  });
+  console.log("inside getSimilarCoursesTool 2");
+  const aiMsg = await chat.invoke([
+    {
+      role: "system",
+      content:
+        "You are a helpful assistant that returns similar Neuroscience courses in a short response.",
+    },
+    { role: "user", content: "Find similar courses" },
+  ]);
+  console.log("inside getSimilarCoursesTool 3:"+aiMsg);
+  return aiMsg;
+},{
+  name:"getSimilarCoursesTool",
+  description:"Call to get Similar Courses"
+})
