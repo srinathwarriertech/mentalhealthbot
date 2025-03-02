@@ -28,7 +28,6 @@ export const getWeatherTool = tool((input) =>{
 
 export const getSimilarCoursesTool = tool(async (input) =>{
   console.log("inside getSimilarCoursesTool 1");
-  // return "A Similar course is Medical Neuroscience by Duke University.";
   const chat = new ChatGroq({
     model: "deepseek-r1-distill-qwen-32b",
     temperature: 0,

@@ -95,14 +95,6 @@ export async function POST(req: NextRequest) {
       new HuggingFaceInferenceEmbeddings({
         apiKey:process.env.HF_API_KEY
       }),
-      //   new AzureOpenAIEmbeddings({
-      //   apiKey: process.env.OPENAI_API_KEY, 
-      //   batchSize: 512, 
-      //   model: "text-embedding-3-large",
-      //   configuration: {
-      //     baseURL: "https://models.inference.ai.azure.com",
-      //   },
-      // }), 
       {
         client,
         tableName: "documents",

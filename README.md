@@ -1,3 +1,6 @@
+[![Open Source Models](./public/images/Thumbnail.png)](https://www.youtube.com/watch?v=0PjgwEid2OM)
+
+
 # AI Agent Tutorial
 
 Hi, This forked github repo is based on langchain's next.js template, but I've adapted it to replace OpenAI with Deepseek LLM using Groq's FREE API portal. 
