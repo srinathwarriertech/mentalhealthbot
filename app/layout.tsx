@@ -65,7 +65,7 @@ export default function RootLayout({
             <div className="grid grid-cols-[1fr,auto] gap-2 p-4">
               <div className="flex gap-4 flex-col md:flex-row md:items-center">
                 <a
-                  href="https://sidwarrier.com/neuromastery"
+                  href="https://google.com"
                   rel="noopener noreferrer"
                   target="_blank"
                   className="flex items-center gap-2"
@@ -74,7 +74,7 @@ export default function RootLayout({
                     src="/images/nl-logo.png"
                     width={20}
                     height={20}
-                    alt="Neuromastery logo"
+                    alt="logo"
                   />
                 </a>
                 <nav className="flex gap-1 flex-col md:flex-row">

@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
      * Function calling is currently only supported with ChatOpenAI models
      */
     const model = new ChatGroq({
-      model: "mixtral-8x7b-32768",
+      model: "llama-3.3-70b-versatile",
       temperature: 0,
       apiKey: process.env.GROQ_API_KEY 
       // other params...

@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
     //   temperature: 0.2,
     // });
     const chatModel = new ChatGroq({
-      model: "mixtral-8x7b-32768",
+      model: "llama-3.3-70b-versatile",
       temperature: 0,
       apiKey: process.env.GROQ_API_KEY 
       // other params...
